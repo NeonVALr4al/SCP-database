@@ -58,7 +58,9 @@ body {
     0 0 0 4px #1a1208,
     0 0 0 6px var(--border),
     8px 8px 24px rgba(0,0,0,0.6);
-  min-height: 80vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   position: relative;
 }
 
@@ -918,4 +920,9 @@ a.nav-logo {
 
 a.nav-logo:hover {
   opacity: 0.75;
+}
+
+/* Pushes footer to bottom of page */
+.page-content {
+  flex: 1;
 }
