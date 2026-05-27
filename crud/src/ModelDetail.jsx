@@ -50,7 +50,9 @@ function ModelDetail() {
   }, [id]);
 
   if (!itemData) {
-    return <div className="loading">Retrieving classified file... please wait</div>;
+    return (
+      <div className="loading">Retrieving classified file... please wait</div>
+    );
   }
 
   return (
@@ -58,14 +60,13 @@ function ModelDetail() {
       {/* Document header */}
       <div className="doc-header">
         <div className="doc-classification-top">
-          ⚠ Top Secret — Level 4 Clearance Required — Authorised Personnel Only ⚠
+          ⚠ Top Secret — Level 4 Clearance Required — Authorised Personnel Only
+          ⚠
         </div>
         <div className="doc-title-row">
           <div>
             <div className="doc-item-number">{itemData.item}</div>
-            <div
-              className={`doc-item-class ${getClassStyle(itemData.class)}`}
-            >
+            <div className={`doc-item-class ${getClassStyle(itemData.class)}`}>
               Object Class: {itemData.class}
             </div>
           </div>
@@ -75,7 +76,6 @@ function ModelDetail() {
 
       {/* Document body */}
       <div className="doc-body">
-
         {/* Metadata fields */}
         <div className="doc-field">
           <span className="doc-field-label">Item No</span>
@@ -88,7 +88,9 @@ function ModelDetail() {
         <div className="doc-field">
           <span className="doc-field-label">Site Assigned</span>
           <span className="doc-field-value">
-            Site-<Redacted width="48px" /> — <span className="redacted">REDACTED LOCATION DATA</span>
+            Site-
+            <Redacted width="48px" /> —{" "}
+            <span className="redacted">REDACTED LOCATION DATA</span>
           </span>
         </div>
         <div className="doc-field">
@@ -100,7 +102,8 @@ function ModelDetail() {
         <div className="doc-field">
           <span className="doc-field-label">Date of Entry</span>
           <span className="doc-field-value">
-            <Redacted width="80px" /> / <Redacted width="40px" /> / <Redacted width="40px" />
+            <Redacted width="80px" /> / <Redacted width="40px" /> /{" "}
+            <Redacted width="40px" />
           </span>
         </div>
 
@@ -126,17 +129,6 @@ function ModelDetail() {
           <h3>Description</h3>
           <p>{itemData.description}</p>
         </div>
-
-        {/* Addendum redacted */}
-        <div className="description-section" style={{ marginTop: "24px" }}>
-          <h3>Addendum</h3>
-          <p>
-            <span className="redacted">ADDENDUM CONTENT REDACTED — INSUFFICIENT CLEARANCE LEVEL. CONTACT O5 COMMAND FOR ACCESS AUTHORISATION.</span>{" "}
-            Further details available to personnel with Level 5 clearance.
-            See document <span className="redacted">SCP-XXXX-ADD-001</span> for full incident report.
-          </p>
-        </div>
-
       </div>
     </div>
   );
